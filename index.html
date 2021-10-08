@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>PomodorApp</title>
+</head>
+<body>
+    <div class="relative min-h-screen md:flex">
+        <!-- mobile menubar -->
+        <div class="bg-gray-800 text-gray-100 flex justify-between md:hidden style">
+            <!-- logo -->
+            <a href="#" class="block p-4 text-white font-bold">pomodor@pp</a>
+            <!-- mbl menu button -->
+            <button class="mobile-menu-btn p-4 focus:outline-none focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+                  </svg>
+            </button>
+        </div>
+        <!-- slider -->
+        <div class="border-double border-4 border-light-black-700 sidebar bg-gray-100  text-blue-100 w-64 space-y-6 px-2 py-7 absolute inset-y-0 left-0 transform -translate-x-full transition duration-300 ease-in-out md:relative md:translate-x-0">
+            <!-- logo -->
+            <a class="text-blue-700 flex items-center space-x-2 px-4" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
+                  </svg>
+                 <span class="text-2xl font-extrabold">pomodor</span>
+            </a>
+        <!-- navbar -->
+            <div class="pt-10">
+                <a href="" class="text-2xl text-blue-700 block py-2.5 px-4 flex items-center rounded hover:bg-blue-700 hover:text-white font-bold transition duration-200"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                Timer</a>
+                <a href="" class="text-2xl mt-10 text-blue-700 block py-2.5 px-4 flex items-center rounded hover:bg-blue-700 hover:text-white font-bold transition duration-200"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+                  </svg>Settings</a>
+            </div>
+        </div>
+        <div class="flex-1 p-10 pb-40">
+            <div id="overlay" class="grid hidden justify-items-center bg-black bg-opacity-50 p-12 absolute inset-0">
+                <div class="bg-white pt-8 px-4 md:h-3/4 md:pt-10 md:px-12 rounded shadow-lg">
+                    <div class="grid ">
+                            <div class="flex flex-row-reverse text-red-600">
+                                <button id="close-modal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer hover:bg-gray-200 p-1 rounded-full " viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                      </svg>
+                                </button>
+                            </div>
+                            <div class="pb-6 font-semibold text-black ml-2">
+                                <p class=""> Edit Label</p>
+                            </div>
+                            <div class="">
+                                <div class="flow-root">
+                                <input type="text" id="new-task" class="inpKey py-3 px-4 storage  ml-1 rounded bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-opacity-50" type="text" placeholder="Label Name"/>                     
+                                </div>
+                                <br>
+                                <div class="flow-root">
+                                    <input type="text" id="new-color" class="inpValue py-3 px-4 ml-1 rounded bg-gray-200 focus:outline-none focus:ring-2 focus:ring-black-600 focus:ring-opacity-50" type="text" placeholder="Label Color"/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="flex flex-row-reverse mt-2">
+                                <button id="cancle-modal" class="text-xs flex px-3 ml-2 py-1\.5 text-white bg-red-500 border-0 focus:outline-none hover:bg-red-600 rounded text-lg">Cancle</button>
+                                <br>
+                                <button id="confirm" class="confirmBtn text-xs flex px-3 ml-2 py-1\.5 text-white bg-blue-500 border-0 focus:outline-none hover:bg-blue-600 rounded text-lg">confirm</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid justify-center pt-8 pb-12 md:pb-6">
+                <div>
+                    <p class="pb-8 text-center text-3xl font-mono italic ">PomodorApp.js</p>
+                    <button id="add-btn" class="text-sm py-2 px-6 bg-gray-200 font-semibold rounded flex items-center"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                      </svg><span class="text">Add Label</span></button>
+                </div>        
+            </div>
+            <div class="clock ">
+                <div class="mins">0</div>
+                <div>:</div>
+                <div class="secs">00</div>
+                <audio
+                  src="http://soundbible.com/mp3/service-bell_daniel_simion.mp3"
+                ></audio>
+                <svg class="progress-ring" height="120" width="120">
+                  <circle
+                    class="progress-ring__circle"
+                    stroke-width="8"
+                    fill="transparent"
+                    r="50"
+                    cx="60"
+                    cy="60"
+                  />
+                </svg>
+              </div>
+          
+              <div class=" flex justify-center space-x-2 mt-8 md:mt-4 pb-5 ">
+                <button class="start"><svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg></button>
+                <button class="reset"><svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-700" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                  </svg></button>
+                <button class="pause"><svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-blue-700" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                  </svg></button>
+              </div>
+
+              <div class="flex justify-center py-2 bg-gray-200 rounded font-bold">
+                  <p>Time Schedule</p>
+              </div>
+              <form action="." class="">
+                <label class="py-2 text-lg font-bold " for="focusTime">Focus Time</label>
+                <input type="number" value="1" id="focusTime" />
+                <label class="py-2 text-lg font-bold " for="breakTime">Break Time</label>
+                <input type="number" value="1" id="breakTime" />
+                <button type="submit">Save settings</button>
+              </form>       
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/timer.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
