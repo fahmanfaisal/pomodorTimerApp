@@ -36,3 +36,4 @@ pauseBtn.addEventListener("click", () => {
     paused = true;
   }
 });
+

@@ -12,9 +12,7 @@ const storageInput = document.querySelector('.storage');
 const text = document.querySelector('.text');
 const confirmBtn = document.querySelector('.confirmBtn');
 const storedInput = localStorage.getItem('textinput');
-if (storageInput) {
-    text.textContent = storedInput
-}
+
 addBtn.addEventListener('click',() =>{
     overlay.classList.remove('hidden');
     overlay.classList.add('grid');
@@ -28,15 +26,8 @@ cancleModal.addEventListener('click',() =>{
     overlay.classList.remove('grid');
 })
 
-storageInput.addEventListener('input', letter => {
-    text.textContent = letter.target.value
-})
-saveToLocalStorage = () => {
-    localStorage.setItem('textinput', text.textContent)
-}
-
 confirmBtn.addEventListener('click',() =>{
-    saveToLocalStorage();
-    overlay.classList.add('hidden');
-    overlay.classList.remove('grid');
-})
+        text.textContent = storageInput.value
+        localStorage.setItem('textinput', text.textContent)          
+    })
+    
