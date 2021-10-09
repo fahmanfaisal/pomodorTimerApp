@@ -26,8 +26,15 @@ cancleModal.addEventListener('click',() =>{
     overlay.classList.remove('grid');
 })
 
+
 confirmBtn.addEventListener('click',() =>{
-        text.textContent = storageInput.value
-        localStorage.setItem('textinput', text.textContent)          
-    })
-    
+    text.textContent = storageInput.value
+    localStorage.setItem('textinput', text.textContent)      
+})
+
+
+function changeColor(getColor) {
+    let bg = document.querySelector('bg');
+    let colorlabel = getColor.value;
+    bg.style.background = colorlabel;
+}

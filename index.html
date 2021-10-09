@@ -61,13 +61,11 @@
                                 </div>
                                 <br>
                                 <div class="flow-root pl-1">
-                                    <select id="colorlabel">
+                                    <select class="colorlabel" onchange="changeColor(this)">
                                         <option class="" value="" selected disabled>Select Your LabelColor</option>
-                                        <option class="blue" value="">Blue</option>
-                                        <option class="yellow" value="">Yellow</option>
-                                        <option class="red" value="">Red</option>
-                                        <option class="green" value="">Green</option>
-                                        <option class="tomato" value="">Tomato</option>
+                                        <option class="blue" value="#0000FF">Blue</option>
+                                        <option class="yellow" value="#FFFF00">Yellow</option>
+                                        <option class="red"value="#FF0000">Red</option>
                                     </select>
                                     <input class="editOption" style="display:none;"></input>
                                 </div>
@@ -84,9 +82,9 @@
             <div class="grid justify-center pt-8 pb-12 md:pb-6">
                 <div>
                     <p class="pb-8 text-center text-3xl font-mono italic ">PomodorApp.js</p>
-                    <button id="add-btn" class="text-sm py-2 px-6 ml-10 bg-gray-200 font-semibold rounded flex items-center"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <button id="add-btn" class=" text-sm py-2 px-6 ml-10 bg-gray-200 font-semibold rounded flex items-center"> <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
-                      </svg><span class="text">Add Label</span></button>
+                      </svg><span class="text bg" id="colorChnage">Add Label</span></button>
                 </div>        
             </div>
             <div class="clock md:py-20">
