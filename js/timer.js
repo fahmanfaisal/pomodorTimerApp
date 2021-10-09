@@ -23,7 +23,8 @@ startBtn.addEventListener("click", () => {
   setTimeout(decremenT(), 60);
   startBtn.style.transform = "scale(0)";
   paused = false;
-});
+})
+
 
 function decremenT() {
   mindiv.textContent = Math.floor(seconds / 60);
