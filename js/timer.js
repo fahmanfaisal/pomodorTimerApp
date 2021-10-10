@@ -21,9 +21,16 @@ startBtn.addEventListener("click", () => {
   seconds = mins * 60;
   totalsecs = mins * 60;
   setTimeout(decremenT(), 60);
-  startBtn.style.transform = "scale(0)";
+  startBtn.style.transform = "scale(1)";
   paused = false;
-});
+
+})
+
+function showAlert() {
+  var myText = "This can be whatever text you like!";
+  alert (myText);
+}
+
 
 function decremenT() {
   mindiv.textContent = Math.floor(seconds / 60);
@@ -58,3 +65,4 @@ function decremenT() {
     startBtn.style.transform = "scale(1)";
   }
 }
+
